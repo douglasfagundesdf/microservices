@@ -1,0 +1,43 @@
+server:
+  port: 8100
+ 
+spring:
+  application:
+    name: book-service
+  
+  jackson:
+    default-property-inclusion: non-null
+
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/book_service?useTimezone=true&serverTimeZone=UTC
+    username: book
+    password: Book123-
+  jpa:
+    hibernate:
+      ddl-auto: none
+    show-sql: true
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQL57Dialect
+  
+  flyway:
+    url: jdbc:mysql://localhost:3306/book_service?useTimezone=true&serverTimeZone=UTC
+    user: book
+    password: Book123-
+    
+  sleuth:
+    sampler:
+      probability: 1.0
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka
+
+springdoc:
+  show-actuator: true
+  api-docs:
+    path: book-service/v3/api-docs
+
+
